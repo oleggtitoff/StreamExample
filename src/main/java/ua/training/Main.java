@@ -27,6 +27,24 @@ public class Main {
                 .filter(x -> x > 0)
                 .count();
 
+        println("Average value: " + averageValue);
+        println("Min element value: " + minElementValue);
+        println("Min element index: " + minElementIndex);
+        println("Number of zeros: " + numberOfZeroElements);
+        println("Number of positive numbers: " + numberOfPositiveNumbers);
+        println("Array multiplied by 10: ");
+
+        IntStream.of(array)
+                .map(x -> x * 10)
+                .forEach(Main::println);
+    }
+
+    private static void println(int value) {
+        System.out.println(value);
+    }
+
+    private static void println(String value) {
+        System.out.println(value);
     }
 
 }
