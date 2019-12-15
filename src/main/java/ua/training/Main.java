@@ -11,6 +11,14 @@ public class Main {
                 .average()
                 .orElse(0);
 
+        int minElementValue = IntStream.of(array)
+                .min()
+                .orElse(0);
+
+        int minElementIndex = IntStream.range(0,array.length)
+                .reduce((i,j) -> array[i] > array[j] ? j : i)
+                .orElse(0);
+
     }
 
 }
