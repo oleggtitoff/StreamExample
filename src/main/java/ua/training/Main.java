@@ -19,6 +19,14 @@ public class Main {
                 .reduce((i,j) -> array[i] > array[j] ? j : i)
                 .orElse(0);
 
+        long numberOfZeroElements = IntStream.of(array)
+                .filter(x -> x == 0)
+                .count();
+
+        long numberOfPositiveNumbers = IntStream.of(array)
+                .filter(x -> x > 0)
+                .count();
+
     }
 
 }
