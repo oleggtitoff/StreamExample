@@ -11,13 +11,10 @@ public class Main {
                 .average()
                 .ifPresent(avg -> println("Average value (via average): " + avg));
 
-        IntStream.of(array)
-                .min()
-                .ifPresent(min -> println("Min element value: " + min));
-
         IntStream.range(0, array.length)
                 .reduce((i, j) -> array[i] > array[j] ? j : i)
-                .ifPresent(index -> println("Min element index: " + index));
+                .ifPresent(i -> println("Min element: index = " + i
+                        + ", value = " + array[i]));
 
         println("Number of zeros: " + IntStream.of(array)
                 .filter(x -> x == 0)
