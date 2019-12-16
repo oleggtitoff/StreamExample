@@ -7,33 +7,29 @@ public class Main {
     public static void main(String[] args) {
         int[] array = new int[]{0, 1, 2, 3, 4, 5, 6, 0, 7, -1, 8, 9, 10, 0};
 
-        double averageValue = IntStream.of(array)
+        IntStream.of(array)
                 .average()
-                .orElse(0);
+                .ifPresent(avg -> println("Average value (via average): " + avg));
 
-        int minElementValue = IntStream.of(array)
+        IntStream.of(array)
                 .min()
-                .orElse(0);
+                .ifPresent(min -> println("Min element value: " + min));
 
-        int minElementIndex = IntStream.range(0,array.length)
-                .reduce((i,j) -> array[i] > array[j] ? j : i)
-                .orElse(0);
+        IntStream.range(0, array.length)
+                .reduce((i, j) -> array[i] > array[j] ? j : i)
+                .ifPresent(index -> println("Min element index: " + index));
 
-        long numberOfZeroElements = IntStream.of(array)
+        println("Number of zeros: " + IntStream.of(array)
                 .filter(x -> x == 0)
-                .count();
+                .count()
+        );
 
-        long numberOfPositiveNumbers = IntStream.of(array)
+        println("Number of positive numbers: " + IntStream.of(array)
                 .filter(x -> x > 0)
-                .count();
+                .count()
+        );
 
-        println("Average value: " + averageValue);
-        println("Min element value: " + minElementValue);
-        println("Min element index: " + minElementIndex);
-        println("Number of zeros: " + numberOfZeroElements);
-        println("Number of positive numbers: " + numberOfPositiveNumbers);
         println("Array multiplied by 10: ");
-
         IntStream.of(array)
                 .map(x -> x * 10)
                 .forEach(Main::println);
