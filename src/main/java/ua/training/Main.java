@@ -11,6 +11,9 @@ public class Main {
                 .average()
                 .ifPresent(avg -> println("Average value (via average): " + avg));
 
+        println("Average value (without average): "
+                + (double) IntStream.of(array).sum() / array.length);
+
         IntStream.range(0, array.length)
                 .reduce((i, j) -> array[i] > array[j] ? j : i)
                 .ifPresent(i -> println("Min element: index = " + i
